@@ -1,6 +1,6 @@
 const express = require('express');
 const { newInsurance, getAllInsurance } = require('../controllers/insuranceController');
-const newCovarage = require('../controllers/covarageController');
+const { newCovarage, getAllCovarages } = require('../controllers/covarageController');
 
 const Router = express.Router();
 
@@ -10,7 +10,7 @@ Router.post('/covarage', newCovarage);
 
 Router.get('/insurances', getAllInsurance);
 
-Router.get('/coverages');
+Router.get('/coverages', getAllCovarages);
 
 Router.post('/simulator');
 
