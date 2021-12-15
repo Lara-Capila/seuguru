@@ -5,9 +5,9 @@ const createCoverage = async (name, factor) => {
   return newCovarage;
 };
 
-const getCovarage = async () => {
+const getCoverage = async () => {
   const covarages = await Coverage.findAll({});
   return covarages;
 };
 
-module.exports = { createCoverage, getCovarage };
+module.exports = { createCoverage, getCoverage };
