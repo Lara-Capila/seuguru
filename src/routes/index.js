@@ -1,11 +1,12 @@
 const express = require('express');
 const newInsurance = require('../controllers/insuranceController');
+const newCovarage = require('../controllers/covarageController');
 
 const Router = express.Router();
 
 Router.post('/insurance', newInsurance);
 
-Router.post('/coverage');
+Router.post('/covarage', newCovarage);
 
 Router.get('/insurance/:id');
 
