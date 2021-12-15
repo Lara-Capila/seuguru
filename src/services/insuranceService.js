@@ -5,4 +5,9 @@ const createInsurance = async (name) => {
   return newInsurance;
 };
 
-module.exports = createInsurance;
+const getInsurance = async () => {
+  const insurance = await Insurance.findAll({});
+  return insurance;
+};
+
+module.exports = { createInsurance, getInsurance };

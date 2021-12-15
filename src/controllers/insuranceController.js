@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const createInsurance = require('../services/insuranceService');
+const { createInsurance, getInsurance } = require('../services/insuranceService');
 
 const newInsurance = async (req, res) => {
   try {
@@ -11,4 +11,13 @@ const newInsurance = async (req, res) => {
   }
 };
 
-module.exports = newInsurance;
+const getAllInsurance = async (req, res) => {
+  try {
+    const insurance = await getInsurance();
+    res.status(StatusCodes.OK).json(insurance);
+  } catch (error) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+  }
+};
+
+module.exports = { newInsurance, getAllInsurance };
