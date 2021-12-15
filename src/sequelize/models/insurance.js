@@ -2,7 +2,7 @@ const Insurance = (sequelize, DataTypes) => {
   const insurance = sequelize.define('Insurance', {
     name: DataTypes.STRING,
   },
-    { timestamps: false });
+    { timestamps: false, tableName: 'insurances' });
 
     insurance.associate = (models) => {
       insurance.hasMany(models.Coverage,

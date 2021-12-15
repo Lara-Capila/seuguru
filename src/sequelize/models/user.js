@@ -8,7 +8,7 @@ const User = (sequelize, DataTypes) => {
       number: DataTypes.STRING,
       zipcode: DataTypes.STRING,
     },
-    { timestamps: false },
+    { timestamps: false, tableName: 'users' },
   );
 
   return user;

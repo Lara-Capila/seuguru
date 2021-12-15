@@ -4,7 +4,7 @@ const Coverage = (sequelize, DataTypes) => {
     factor: DataTypes.DECIMAL(2, 1),
     insuranceId: DataTypes.INTEGER,
   },
-    { timestamps: false });
+    { timestamps: false, tableName: 'coverage' });
 
   coverage.associate = (models) => {
     coverage.belongsTo(models.Insurance,
