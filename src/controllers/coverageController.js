@@ -1,11 +1,11 @@
 const { StatusCodes } = require('http-status-codes');
-const { createCovarage, getCoverage } = require('../services/coverageService');
+const { createCoverage, getCoverage } = require('../services/coverageService');
 
 const newCoverage = async (req, res) => {
   try {
-    const { name, factor } = req.body;
-    const data = { name, factor };
-    await createCovarage(data);
+    const { name, factor, insuranceId } = req.body;
+    const data = { name, factor, insuranceId };
+    await createCoverage(data);
     res.status(StatusCodes.CREATED).json({ message: 'Cobertura criada com sucesso!' });
   } catch (error) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
