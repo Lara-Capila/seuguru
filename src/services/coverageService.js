@@ -1,6 +1,6 @@
 const { Coverage } = require('../sequelize/models');
 
-const createCoverage = async (name, factor) => {
+const createCoverage = async ({ name, factor }) => {
   const newCovarage = await Coverage.create({ name, factor });
   return newCovarage;
 };
