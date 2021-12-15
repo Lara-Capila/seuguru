@@ -1,0 +1,23 @@
+/* eslint-disable max-lines-per-function */
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Coverages', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      name: {
+        type: Sequelize.STRING,
+      },
+      factor: {
+        type: Sequelize.DECIMAL(2, 1),
+      },
+    });
+  },
+  down: async (queryInterface, _Sequelize) => {
+    await queryInterface.dropTable('Coverages');
+  },
+};
