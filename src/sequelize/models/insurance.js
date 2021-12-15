@@ -4,6 +4,11 @@ const Insurance = (sequelize, DataTypes) => {
   },
     { timestamps: false });
 
+    insurance.associate = (models) => {
+      insurance.hasMany(models.Coverage,
+        { foreignKey: 'insuranceId', as: 'coverages' });
+    };
+
   return insurance;
 };
 

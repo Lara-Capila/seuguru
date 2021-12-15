@@ -2,12 +2,22 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Coverages', {
+    await queryInterface.createTable('coverages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+      },
+      insuranceId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'insurances',
+          key: 'id',
+        },
       },
       name: {
         type: Sequelize.STRING,
@@ -18,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, _Sequelize) => {
-    await queryInterface.dropTable('Coverages');
+    await queryInterface.dropTable('coverages');
   },
 };
