@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const newUser = require('../services/userService');
+const { newUser, getUserById } = require('../services/userService');
 
 const createUser = async (req, res) => {
   try {
@@ -13,4 +13,15 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = createUser;
+const userId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await getUserById(id);
+
+    res.status(StatusCodes.OK).json(user);
+  } catch (error) {
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+  }
+};
+
+module.exports = { createUser, userId };

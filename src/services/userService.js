@@ -11,4 +11,13 @@ const newUser = async (data) => {
   throw new Error('Usuário já registrado!');
 };
 
-module.exports = newUser;
+const getUserById = async (id) => {
+  const user = await User.findOne({ where: { id } });
+
+  if (user) {
+    return user;
+  }
+  throw new Error('Usuário não encontrado!');
+};
+
+module.exports = { newUser, getUserById };
