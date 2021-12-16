@@ -10,7 +10,7 @@ module.exports = {
           id: 2,
           name: 'Seguro Residencial',
         },
-      ]);
+      ], { timestamps: false });
   },
 
   down: async (queryInterface, _Sequelize) => {
